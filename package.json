@@ -1,0 +1,22 @@
+{
+  "name": "leon-ppt",
+  "version": "1.0.0",
+  "description": "Leon PPT 生成 Skill - 将内容转化为专业风格的 .pptx 幻灯片",
+  "main": "scripts/build_pptx.js",
+  "scripts": {
+    "build": "node scripts/build_pptx.js"
+  },
+  "keywords": [
+    "ppt",
+    "pptx",
+    "slides",
+    "presentation",
+    "claude-code",
+    "skill"
+  ],
+  "author": "Leon",
+  "license": "MIT",
+  "dependencies": {
+    "pptxgenjs": "^3.12.0"
+  }
+}
