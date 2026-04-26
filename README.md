@@ -13,6 +13,40 @@
 | 📐 **22 种版式** | 封面、目录、章节页、数据卡片、对比栏、Bento Grid…… |
 | 🤖 **AI 品牌 Logo** | 自动识别 AI 品牌，嵌入 lobe-icons |
 | 📄 **多格式输入** | Markdown · 文本大纲 · 直接粘贴内容 |
+| 🌐 **网页预览** | 一键启动预览服务器，在线浏览和下载PPT |
+
+---
+
+## 🎉 新特性：网页预览与下载
+
+### 功能说明
+
+生成的PPT可以自动发布为网页，提供：
+- ✅ 网页预览界面
+- ✅ PPT源文件下载按钮
+- ✅ 文件列表管理
+- ✅ 响应式设计
+
+### 启动预览服务器
+
+```bash
+cd skills/leon-ppt
+node scripts/ppt-preview-server.js
+```
+
+### 访问地址
+
+- **本地访问**: http://localhost:18880
+- **公网访问**: http://<你的公网IP>:18880
+- **API接口**: http://localhost:18880/api/files
+
+### 端口配置
+
+默认端口 `18880`，可通过环境变量修改：
+
+```bash
+PPT_PREVIEW_PORT=8888 node scripts/ppt-preview-server.js
+```
 
 ---
 
@@ -83,10 +117,12 @@ leon-ppt/
 ├── pptx-builder.md        # 技术构建文档
 ├── references/            # 参考文档
 │   └── ai-brand-logos.md  # AI 品牌 Logo 映射表
+├── scripts/               # 构建脚本
+│   ├── build_pptx.js      # PPT生成脚本
+│   └── ppt-preview-server.js  # 🆕 网页预览服务器
+├── output/                # 生成的PPT文件
 ├── README.md              # 本文件
-├── assets/                # 资源文件
-└── scripts/               # 构建脚本
-    └── build_pptx.js
+└── assets/                # 资源文件
 ```
 
 ---
