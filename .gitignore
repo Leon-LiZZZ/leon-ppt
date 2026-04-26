@@ -1,5 +1,15 @@
-node_modules/
-output/
+# 预览文件（包含用户数据）
+previews/
+
+# 日志文件
 *.log
-.DS_Store
-lobe_cache/
+
+# 临时文件
+*.tmp
+*.bak
+
+# Node modules (已安装)
+node_modules/
+
+# 输出文件（用户生成的PPT）
+output/*.pptx

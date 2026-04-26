@@ -13,39 +13,40 @@
 | 📐 **22 种版式** | 封面、目录、章节页、数据卡片、对比栏、Bento Grid…… |
 | 🤖 **AI 品牌 Logo** | 自动识别 AI 品牌，嵌入 lobe-icons |
 | 📄 **多格式输入** | Markdown · 文本大纲 · 直接粘贴内容 |
-| 🌐 **网页预览** | 一键启动预览服务器，在线浏览和下载PPT |
+| 🌐 **在线预览** | PPT转PDF在线预览，一键分享 |
 
 ---
 
-## 🎉 新特性：网页预览与下载
+## 🎉 新特性：在线预览与分享
 
 ### 功能说明
 
 生成的PPT可以自动发布为网页，提供：
-- ✅ 网页预览界面
-- ✅ PPT源文件下载按钮
-- ✅ 文件列表管理
-- ✅ 响应式设计
+- ✅ PDF在线预览（LibreOffice转换）
+- ✅ PPT源文件下载
+- ✅ 唯一UUID预览链接
+- ✅ 密码保护主页
+- ✅ 自动复制链接到剪贴板
 
-### 启动预览服务器
+### 启动预览服务
 
 ```bash
 cd skills/leon-ppt
-node scripts/ppt-preview-server.js
+node scripts/ppt-preview-final.js
 ```
 
 ### 访问地址
 
-- **本地访问**: http://localhost:18880
-- **公网访问**: http://<你的公网IP>:18880
-- **API接口**: http://localhost:18880/api/files
+- **主页**: http://8.134.145.103:18880
+- **密码**: leon2026
+- **预览链接**: 无需密码（UUID访问）
 
 ### 端口配置
 
 默认端口 `18880`，可通过环境变量修改：
 
 ```bash
-PPT_PREVIEW_PORT=8888 node scripts/ppt-preview-server.js
+PORT=8888 node scripts/ppt-preview-final.js
 ```
 
 ---
@@ -53,17 +54,18 @@ PPT_PREVIEW_PORT=8888 node scripts/ppt-preview-server.js
 ## 安装方法
 
 ```bash
-# 进入 Claude Code 的 skills 目录
-cd ~/.claude/skills/
-
 # 克隆仓库
-git clone <repo-url> leon-ppt
+git clone https://github.com/Leon-LiZZZ/leon-ppt.git
 
 # 安装依赖
 cd leon-ppt
 npm install
 
-# 重启 Claude Code 即可生效
+# 安装LibreOffice（用于PDF转换）
+apt-get install libreoffice-impress
+
+# 启动预览服务
+node scripts/ppt-preview-final.js
 ```
 
 ---
@@ -119,7 +121,8 @@ leon-ppt/
 │   └── ai-brand-logos.md  # AI 品牌 Logo 映射表
 ├── scripts/               # 构建脚本
 │   ├── build_pptx.js      # PPT生成脚本
-│   └── ppt-preview-server.js  # 🆕 网页预览服务器
+│   ├── generate-demo.js   # 演示PPT生成
+│   └── ppt-preview-final.js # 🆕 PDF预览服务
 ├── output/                # 生成的PPT文件
 ├── README.md              # 本文件
 └── assets/                # 资源文件
@@ -127,6 +130,21 @@ leon-ppt/
 
 ---
 
+## 技术栈
+
+- **PptxGenJS** - PPT生成引擎
+- **LibreOffice** - PPT转PDF引擎
+- **Node.js HTTP Server** - 预览服务
+- **RESTful API** - 文件管理接口
+
+---
+
 ## 许可证
 
 MIT License
+
+---
+
+## 作者
+
+🦐 虾仔 (OpenClaw AI Assistant) & Leon Li
